@@ -105,7 +105,7 @@
 <img src="logo.png" class="logo" alt=""><h1 id="id_1-goal">1. GOAL<a class="anchor" aria-label="anchor" href="#id_1-goal"></a>
 </h1>
 </div>
-<p>The goal of <code>RsienaTwoStep</code> is to provide a method to asses the extent to which results obtained by <code>RSiena::siena07</code> depend on the validity of the <strong>ministep</strong> assumption.</p>
+<p>The goal of <code>RsienaTwoStep</code> is to provide a method to asses the extent to which results obtained by <code>RSiena::siena07()</code> depend on the validity of the <strong>ministep</strong> assumption.</p>
 <p>A crucial assumption of the SAOM as implemented in RSiena is the <strong>ministep</strong>: only one actor at the time is allowed to make one tie-change. This package aims to provide a method to asses the extent to which results obtained by RSiena hinge on this crucial ministep assumption. It does so by simulating the evolution of networks by allowing <strong>twosteps</strong> - two actors are allowed to make one tie-change simultaneously - and by allowing <strong>simsteps</strong> - one actor is allowed to make two tie-changes simultaneously.</p>
 <div class="section level2">
 <h2 id="id_11-twostep">1.1. Twostep<a class="anchor" aria-label="anchor" href="#id_11-twostep"></a>
@@ -147,7 +147,7 @@
 <div class="section level1">
 <h1 id="id_3-examples">3. Examples<a class="anchor" aria-label="anchor" href="#id_3-examples"></a>
 </h1>
-<p>ABM-ministep and ABM-twostep simulations on toy data</p>
+<p>ABM-ministep, ABM-twostep and ABM-ministep simulations on toy data</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/JochemTolsma/RsienaTwoStep" class="external-link">RsienaTwoStep</a></span><span class="op">)</span></span>
 <span><span class="co">#&gt; Loading required package: foreach</span></span></code></pre></div>
@@ -158,14 +158,12 @@
 <code class="sourceCode R"><span><span class="va">net1g</span> <span class="op">&lt;-</span> <span class="fu">igraph</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/igraph/man/graph_from_adjacency_matrix.html" class="external-link">graph_from_adjacency_matrix</a></span><span class="op">(</span><span class="va">net1</span>, mode<span class="op">=</span><span class="st">"directed"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">net1g</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-3-1.png" width="100%"></p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html" class="external-link">unloadNamespace</a></span><span class="op">(</span><span class="st">"igraph"</span><span class="op">)</span> <span class="co"># to avoid clashes with package `sna`. </span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="id_32-setting-up-cluster">3.2. setting up cluster<a class="anchor" aria-label="anchor" href="#id_32-setting-up-cluster"></a>
 </h2>
 <p>This is of course not necessary but will make the simulations a lot faster.</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/RevolutionAnalytics/doparallel" class="external-link">doParallel</a></span><span class="op">)</span></span>
 <span><span class="co">#&gt; Loading required package: iterators</span></span>
 <span><span class="co">#&gt; Loading required package: parallel</span></span>
@@ -185,7 +183,7 @@
 <h3 id="id_331-simulate-networks">3.3.1. Simulate networks<a class="anchor" aria-label="anchor" href="#id_331-simulate-networks"></a>
 </h3>
 <p>We can now simulate network given different assumptions with respect to tie-changes. Below we simulate according to the traditional ministep assumption, a twostep assumption and a simstep assumption.</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">sims1</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/ts_sims.html">ts_sims</a></span><span class="op">(</span>nsims<span class="op">=</span><span class="fl">1000</span>, parallel<span class="op">=</span><span class="cn">TRUE</span>, net<span class="op">=</span><span class="va">net1</span>, rate<span class="op">=</span><span class="fl">10</span>, statistics<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">ts_degree</span>, <span class="va">ts_recip</span><span class="op">)</span>, parameters<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span>, p2step<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">0</span>,<span class="fl">0</span><span class="op">)</span>, chain<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span> <span class="co">#ministep only (one actor can make one tie change)</span></span>
 <span></span>
 <span><span class="va">sims2</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/ts_sims.html">ts_sims</a></span><span class="op">(</span>nsims<span class="op">=</span><span class="fl">1000</span>, parallel<span class="op">=</span><span class="cn">TRUE</span>, net<span class="op">=</span><span class="va">net1</span>, rate<span class="op">=</span><span class="fl">10</span>, statistics<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">ts_degree</span>, <span class="va">ts_recip</span><span class="op">)</span>, parameters<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span>, p2step<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">1</span>,<span class="fl">0</span><span class="op">)</span>, chain<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span> <span class="co">#twostep-simultaneity (two random actors can make one tie change simultaneously)</span></span>
@@ -196,7 +194,7 @@
 <h3 id="id_332-network-census">3.3.2. Network census<a class="anchor" aria-label="anchor" href="#id_332-network-census"></a>
 </h3>
 <p>The package <code>RsienaTwoStep</code> has build in functions for a dyad census and a triad census. Let us compare the dyad census of our simulated networks.</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">df_s1</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/ts_dyads.html">ts_dyads</a></span><span class="op">(</span>sims<span class="op">=</span><span class="va">sims1</span>, simtype<span class="op">=</span><span class="st">"ministep"</span><span class="op">)</span> </span>
 <span><span class="va">df_s2</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/ts_dyads.html">ts_dyads</a></span><span class="op">(</span>sims<span class="op">=</span><span class="va">sims2</span>, simtype<span class="op">=</span><span class="st">"twostep-simultaneity"</span><span class="op">)</span> </span>
 <span><span class="va">df_s3</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/ts_dyads.html">ts_dyads</a></span><span class="op">(</span>sims<span class="op">=</span><span class="va">sims3</span>, simtype<span class="op">=</span><span class="st">"simstep"</span><span class="op">)</span> </span></code></pre></div>
@@ -204,11 +202,10 @@
 <div class="section level3">
 <h3 id="id_333-plot-dyadcensus">3.3.3. Plot dyadcensus<a class="anchor" aria-label="anchor" href="#id_333-plot-dyadcensus"></a>
 </h3>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
-<span><span class="co">#&gt; Warning: package 'ggplot2' was built under R version 4.2.2</span></span>
 <span></span>
-<span><span class="co">## combine datasets</span></span>
+<span><span class="co"># combine datasets</span></span>
 <span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">rbind</a></span><span class="op">(</span><span class="va">df_s1</span>, <span class="va">df_s2</span>, <span class="va">df_s3</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">p</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="va">df</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">x</span>, y<span class="op">=</span><span class="va">y</span>, fill<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">type</span>, levels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"ministep"</span>, <span class="st">"twostep-simultaneity"</span>, <span class="st">"simstep"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
@@ -226,6 +223,7 @@
 <span>  </span>
 <span><span class="va">p</span></span></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-7-1.png" width="100%"></p>
+<hr>
 </div>
 </div>
 </div>

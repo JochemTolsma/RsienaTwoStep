@@ -229,6 +229,7 @@ pre.numberSource a.sourceLine {
 </h4>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">net1g</span> <span class="op">&lt;-</span> <span class="fu">igraph</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/igraph/man/graph_from_adjacency_matrix.html" class="external-link">graph_from_adjacency_matrix</a></span><span class="op">(</span><span class="va">net1</span>, mode<span class="op">=</span><span class="st">"directed"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mar<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">.1</span>, <span class="fl">.1</span>, <span class="fl">.1</span>, <span class="fl">.1</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu">igraph</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/igraph/man/plot.igraph.html" class="external-link">plot.igraph</a></span><span class="op">(</span><span class="va">net1g</span><span class="op">)</span></span></code></pre></div>
 <div class="figure">
 <img src="Introduction_RsienaTwoStep_files/figure-html/unnamed-chunk-4-1.png" alt="Figure 1.1.2. net1" width="672"><p class="caption">
@@ -257,10 +258,11 @@ Figure 1.1.2. net1
 </h4>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">net2g</span> <span class="op">&lt;-</span> <span class="fu">igraph</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/igraph/man/graph_from_adjacency_matrix.html" class="external-link">graph_from_adjacency_matrix</a></span><span class="op">(</span><span class="va">net2</span>, mode<span class="op">=</span><span class="st">"directed"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html" class="external-link">par</a></span><span class="op">(</span>mar<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">.1</span>, <span class="fl">.1</span>, <span class="fl">.1</span>, <span class="fl">.1</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu">igraph</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/igraph/man/plot.igraph.html" class="external-link">plot.igraph</a></span><span class="op">(</span><span class="va">net2g</span><span class="op">)</span></span></code></pre></div>
 <div class="figure">
-<img src="Introduction_RsienaTwoStep_files/figure-html/unnamed-chunk-6-1.png" alt="Figure 1.2.2. net1" width="672"><p class="caption">
-Figure 1.2.2. net1
+<img src="Introduction_RsienaTwoStep_files/figure-html/unnamed-chunk-6-1.png" alt="Figure 1.2.2. net2" width="672"><p class="caption">
+Figure 1.2.2. net2
 </p>
 </div>
 <hr>
@@ -444,11 +446,11 @@ the value of the evaluation for network <span class="math inline">\(i\)</span>.<
 <span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="st">"network:"</span><span class="op">)</span></span>
 <span><span class="va">options</span><span class="op">[[</span><span class="va">choice</span><span class="op">]</span><span class="op">]</span></span>
 <span><span class="co">#&gt; [1] "choice:"</span></span>
-<span><span class="co">#&gt; [1] 5</span></span>
+<span><span class="co">#&gt; [1] 2</span></span>
 <span><span class="co">#&gt; [1] "network:"</span></span>
 <span><span class="co">#&gt;      [,1] [,2] [,3] [,4] [,5]</span></span>
 <span><span class="co">#&gt; [1,]    0    0    0    0    0</span></span>
-<span><span class="co">#&gt; [2,]    0    0    0    0    0</span></span>
+<span><span class="co">#&gt; [2,]    0    0    0    0    1</span></span>
 <span><span class="co">#&gt; [3,]    1    0    0    0    0</span></span>
 <span><span class="co">#&gt; [4,]    0    0    0    0    0</span></span>
 <span><span class="co">#&gt; [5,]    0    0    0    0    0</span></span></code></pre></div>
@@ -480,7 +482,7 @@ time is up. Let us suppose the <code>rate</code> parameter is 2 . Thus
 in total the number of possible ministeps will be
 <code>nrow(net2)*rate</code>: 10. For a more detailed - <strong>and more
 correct</strong> - interpretation of the rate parameter in
-<code>siena07</code> see: <a href="www.jochemtolsma.nl/courses/complete-networks/socio6">www.jochemtolsma.nl</a></p>
+<code>siena07</code> see: <a href="www.jochemtolsma.nl/courses/complete-networks/socio6">www.jochemtolsma.nl</a>.</p>
 </div>
 <div class="section level3">
 <h3 id="example">2.7. Example<a class="anchor" aria-label="anchor" href="#example"></a>
@@ -501,7 +503,7 @@ correct</strong> - interpretation of the rate parameter in
 <span><span class="co">#&gt;      [,1] [,2] [,3] [,4] [,5]</span></span>
 <span><span class="co">#&gt; [1,]    0    0    0    0    0</span></span>
 <span><span class="co">#&gt; [2,]    0    0    0    0    1</span></span>
-<span><span class="co">#&gt; [3,]    0    0    0    0    0</span></span>
+<span><span class="co">#&gt; [3,]    1    0    0    0    0</span></span>
 <span><span class="co">#&gt; [4,]    0    0    0    0    0</span></span>
 <span><span class="co">#&gt; [5,]    0    0    0    0    0</span></span>
 <span><span class="co">#&gt; </span></span>
@@ -509,65 +511,65 @@ correct</strong> - interpretation of the rate parameter in
 <span><span class="co">#&gt;      [,1] [,2] [,3] [,4] [,5]</span></span>
 <span><span class="co">#&gt; [1,]    0    0    0    0    0</span></span>
 <span><span class="co">#&gt; [2,]    0    0    0    0    1</span></span>
-<span><span class="co">#&gt; [3,]    0    0    0    0    0</span></span>
-<span><span class="co">#&gt; [4,]    0    0    1    0    0</span></span>
+<span><span class="co">#&gt; [3,]    1    0    0    0    0</span></span>
+<span><span class="co">#&gt; [4,]    0    1    0    0    0</span></span>
 <span><span class="co">#&gt; [5,]    0    0    0    0    0</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; [[1]][[4]]</span></span>
 <span><span class="co">#&gt;      [,1] [,2] [,3] [,4] [,5]</span></span>
 <span><span class="co">#&gt; [1,]    0    0    0    0    0</span></span>
 <span><span class="co">#&gt; [2,]    0    0    0    0    1</span></span>
-<span><span class="co">#&gt; [3,]    0    1    0    0    0</span></span>
-<span><span class="co">#&gt; [4,]    0    0    1    0    0</span></span>
+<span><span class="co">#&gt; [3,]    0    0    0    0    0</span></span>
+<span><span class="co">#&gt; [4,]    0    1    0    0    0</span></span>
 <span><span class="co">#&gt; [5,]    0    0    0    0    0</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; [[1]][[5]]</span></span>
 <span><span class="co">#&gt;      [,1] [,2] [,3] [,4] [,5]</span></span>
-<span><span class="co">#&gt; [1,]    0    0    0    0    1</span></span>
-<span><span class="co">#&gt; [2,]    0    0    0    0    1</span></span>
-<span><span class="co">#&gt; [3,]    0    1    0    0    0</span></span>
-<span><span class="co">#&gt; [4,]    0    0    1    0    0</span></span>
+<span><span class="co">#&gt; [1,]    0    0    0    0    0</span></span>
+<span><span class="co">#&gt; [2,]    0    0    0    1    1</span></span>
+<span><span class="co">#&gt; [3,]    0    0    0    0    0</span></span>
+<span><span class="co">#&gt; [4,]    0    1    0    0    0</span></span>
 <span><span class="co">#&gt; [5,]    0    0    0    0    0</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; [[1]][[6]]</span></span>
 <span><span class="co">#&gt;      [,1] [,2] [,3] [,4] [,5]</span></span>
-<span><span class="co">#&gt; [1,]    0    0    0    0    1</span></span>
-<span><span class="co">#&gt; [2,]    0    0    0    0    0</span></span>
-<span><span class="co">#&gt; [3,]    0    1    0    0    0</span></span>
-<span><span class="co">#&gt; [4,]    0    0    1    0    0</span></span>
+<span><span class="co">#&gt; [1,]    0    0    0    0    0</span></span>
+<span><span class="co">#&gt; [2,]    0    0    1    1    1</span></span>
+<span><span class="co">#&gt; [3,]    0    0    0    0    0</span></span>
+<span><span class="co">#&gt; [4,]    0    1    0    0    0</span></span>
 <span><span class="co">#&gt; [5,]    0    0    0    0    0</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; [[1]][[7]]</span></span>
 <span><span class="co">#&gt;      [,1] [,2] [,3] [,4] [,5]</span></span>
-<span><span class="co">#&gt; [1,]    0    0    0    0    1</span></span>
-<span><span class="co">#&gt; [2,]    0    0    0    0    0</span></span>
-<span><span class="co">#&gt; [3,]    0    1    0    0    0</span></span>
-<span><span class="co">#&gt; [4,]    0    0    1    0    0</span></span>
+<span><span class="co">#&gt; [1,]    0    0    0    0    0</span></span>
+<span><span class="co">#&gt; [2,]    0    0    1    1    1</span></span>
+<span><span class="co">#&gt; [3,]    0    0    0    0    0</span></span>
+<span><span class="co">#&gt; [4,]    0    0    0    0    0</span></span>
 <span><span class="co">#&gt; [5,]    0    0    0    0    0</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; [[1]][[8]]</span></span>
 <span><span class="co">#&gt;      [,1] [,2] [,3] [,4] [,5]</span></span>
-<span><span class="co">#&gt; [1,]    0    0    0    0    1</span></span>
-<span><span class="co">#&gt; [2,]    0    0    0    0    0</span></span>
-<span><span class="co">#&gt; [3,]    0    1    0    0    0</span></span>
-<span><span class="co">#&gt; [4,]    0    1    1    0    0</span></span>
-<span><span class="co">#&gt; [5,]    0    0    0    0    0</span></span>
+<span><span class="co">#&gt; [1,]    0    0    0    0    0</span></span>
+<span><span class="co">#&gt; [2,]    0    0    1    1    1</span></span>
+<span><span class="co">#&gt; [3,]    0    0    0    0    0</span></span>
+<span><span class="co">#&gt; [4,]    0    0    0    0    0</span></span>
+<span><span class="co">#&gt; [5,]    0    1    0    0    0</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; [[1]][[9]]</span></span>
 <span><span class="co">#&gt;      [,1] [,2] [,3] [,4] [,5]</span></span>
-<span><span class="co">#&gt; [1,]    0    0    0    0    1</span></span>
-<span><span class="co">#&gt; [2,]    0    0    0    0    0</span></span>
-<span><span class="co">#&gt; [3,]    0    1    0    1    0</span></span>
-<span><span class="co">#&gt; [4,]    0    1    1    0    0</span></span>
-<span><span class="co">#&gt; [5,]    0    0    0    0    0</span></span>
+<span><span class="co">#&gt; [1,]    0    0    0    0    0</span></span>
+<span><span class="co">#&gt; [2,]    0    0    1    0    1</span></span>
+<span><span class="co">#&gt; [3,]    0    0    0    0    0</span></span>
+<span><span class="co">#&gt; [4,]    0    0    0    0    0</span></span>
+<span><span class="co">#&gt; [5,]    0    1    0    0    0</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; [[1]][[10]]</span></span>
 <span><span class="co">#&gt;      [,1] [,2] [,3] [,4] [,5]</span></span>
-<span><span class="co">#&gt; [1,]    0    0    0    0    1</span></span>
-<span><span class="co">#&gt; [2,]    0    0    0    1    0</span></span>
-<span><span class="co">#&gt; [3,]    0    1    0    1    0</span></span>
-<span><span class="co">#&gt; [4,]    0    1    1    0    0</span></span>
-<span><span class="co">#&gt; [5,]    0    0    0    0    0</span></span></code></pre></div>
+<span><span class="co">#&gt; [1,]    0    0    0    0    0</span></span>
+<span><span class="co">#&gt; [2,]    0    0    1    0    1</span></span>
+<span><span class="co">#&gt; [3,]    0    0    0    0    0</span></span>
+<span><span class="co">#&gt; [4,]    0    0    0    0    0</span></span>
+<span><span class="co">#&gt; [5,]    0    1    0    0    0</span></span></code></pre></div>
 <hr>
 </div>
 </div>
@@ -676,7 +678,7 @@ score of each network we simply apply a Mc Fadden’s choice function.
 That is, the actors together ‘decide’ on the future network out of the
 possible alternative networks in the choice set, given the combined
 evaluation of these networks. Thus we see the dyad formed by agent1 and
-agent2 as the decision agent. Please not that agents (or rather the
+agent2 as the decision agent. Please note that agents (or rather the
 dyad) thus favor the network with the highest combined ‘utility’ score.
 This is not necessarily the network that would give one of the two
 agents the highest satisfaction.</p>
@@ -685,7 +687,7 @@ agents the highest satisfaction.</p>
 <h3 id="stopping-rule-1">3.7. Stopping rule<a class="anchor" aria-label="anchor" href="#stopping-rule-1"></a>
 </h3>
 <p>Once again the logic is exactly similar. However, we count a twostep
-as two ministeps. Thus if each actor is allowed to make on average 8
+as two ministeps. Thus, if each actor is allowed to make on average 8
 ministeps, actors are allowed to make on average 4 twosteps.</p>
 </div>
 <div class="section level3">
@@ -699,40 +701,40 @@ ministeps, actors are allowed to make on average 4 twosteps.</p>
 <span><span class="co">#&gt; [1,]    0    0    0    0    0</span></span>
 <span><span class="co">#&gt; [2,]    0    0    0    0    1</span></span>
 <span><span class="co">#&gt; [3,]    0    0    0    0    0</span></span>
-<span><span class="co">#&gt; [4,]    0    0    0    0    0</span></span>
-<span><span class="co">#&gt; [5,]    0    1    0    0    0</span></span>
+<span><span class="co">#&gt; [4,]    0    0    0    0    1</span></span>
+<span><span class="co">#&gt; [5,]    0    0    0    0    0</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; [[1]][[2]]</span></span>
 <span><span class="co">#&gt;      [,1] [,2] [,3] [,4] [,5]</span></span>
 <span><span class="co">#&gt; [1,]    0    0    0    0    0</span></span>
-<span><span class="co">#&gt; [2,]    0    0    1    0    1</span></span>
+<span><span class="co">#&gt; [2,]    1    0    0    0    1</span></span>
 <span><span class="co">#&gt; [3,]    0    0    0    0    0</span></span>
-<span><span class="co">#&gt; [4,]    0    0    0    0    0</span></span>
-<span><span class="co">#&gt; [5,]    0    1    1    0    0</span></span>
+<span><span class="co">#&gt; [4,]    0    0    0    0    1</span></span>
+<span><span class="co">#&gt; [5,]    0    1    0    0    0</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; [[1]][[3]]</span></span>
 <span><span class="co">#&gt;      [,1] [,2] [,3] [,4] [,5]</span></span>
-<span><span class="co">#&gt; [1,]    0    0    1    0    0</span></span>
-<span><span class="co">#&gt; [2,]    0    0    1    0    1</span></span>
+<span><span class="co">#&gt; [1,]    0    0    0    0    0</span></span>
+<span><span class="co">#&gt; [2,]    0    0    0    0    1</span></span>
 <span><span class="co">#&gt; [3,]    0    0    0    0    0</span></span>
-<span><span class="co">#&gt; [4,]    0    1    0    0    0</span></span>
-<span><span class="co">#&gt; [5,]    0    1    1    0    0</span></span>
+<span><span class="co">#&gt; [4,]    0    0    0    0    1</span></span>
+<span><span class="co">#&gt; [5,]    0    1    0    0    0</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; [[1]][[4]]</span></span>
 <span><span class="co">#&gt;      [,1] [,2] [,3] [,4] [,5]</span></span>
-<span><span class="co">#&gt; [1,]    0    0    1    0    0</span></span>
-<span><span class="co">#&gt; [2,]    0    0    1    0    1</span></span>
+<span><span class="co">#&gt; [1,]    0    0    0    0    0</span></span>
+<span><span class="co">#&gt; [2,]    0    0    0    0    1</span></span>
 <span><span class="co">#&gt; [3,]    0    0    0    0    0</span></span>
-<span><span class="co">#&gt; [4,]    0    1    0    0    1</span></span>
-<span><span class="co">#&gt; [5,]    0    1    1    1    0</span></span>
+<span><span class="co">#&gt; [4,]    0    0    0    0    1</span></span>
+<span><span class="co">#&gt; [5,]    0    1    0    1    0</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; [[1]][[5]]</span></span>
 <span><span class="co">#&gt;      [,1] [,2] [,3] [,4] [,5]</span></span>
-<span><span class="co">#&gt; [1,]    0    0    1    0    1</span></span>
-<span><span class="co">#&gt; [2,]    0    0    1    0    1</span></span>
-<span><span class="co">#&gt; [3,]    0    0    0    0    0</span></span>
-<span><span class="co">#&gt; [4,]    0    1    0    0    1</span></span>
-<span><span class="co">#&gt; [5,]    1    1    1    1    0</span></span></code></pre></div>
+<span><span class="co">#&gt; [1,]    0    0    0    0    0</span></span>
+<span><span class="co">#&gt; [2,]    0    0    0    0    1</span></span>
+<span><span class="co">#&gt; [3,]    0    0    0    0    1</span></span>
+<span><span class="co">#&gt; [4,]    0    0    0    0    1</span></span>
+<span><span class="co">#&gt; [5,]    0    1    1    1    0</span></span></code></pre></div>
 <hr>
 </div>
 </div>
@@ -818,41 +820,41 @@ ministeps, actors are allowed to make on average 4 simsteps.</p>
 <span><span class="co">#&gt;      [,1] [,2] [,3] [,4] [,5]</span></span>
 <span><span class="co">#&gt; [1,]    0    0    0    0    0</span></span>
 <span><span class="co">#&gt; [2,]    0    0    0    0    1</span></span>
-<span><span class="co">#&gt; [3,]    1    0    0    0    0</span></span>
+<span><span class="co">#&gt; [3,]    1    0    0    1    1</span></span>
 <span><span class="co">#&gt; [4,]    0    0    0    0    0</span></span>
-<span><span class="co">#&gt; [5,]    1    1    0    0    0</span></span>
+<span><span class="co">#&gt; [5,]    0    0    0    0    0</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; [[1]][[2]]</span></span>
 <span><span class="co">#&gt;      [,1] [,2] [,3] [,4] [,5]</span></span>
-<span><span class="co">#&gt; [1,]    0    0    0    0    0</span></span>
+<span><span class="co">#&gt; [1,]    0    0    1    1    0</span></span>
 <span><span class="co">#&gt; [2,]    0    0    0    0    1</span></span>
-<span><span class="co">#&gt; [3,]    1    0    0    0    0</span></span>
-<span><span class="co">#&gt; [4,]    0    1    0    0    1</span></span>
-<span><span class="co">#&gt; [5,]    1    1    0    0    0</span></span>
+<span><span class="co">#&gt; [3,]    1    0    0    1    1</span></span>
+<span><span class="co">#&gt; [4,]    0    0    0    0    0</span></span>
+<span><span class="co">#&gt; [5,]    0    0    0    0    0</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; [[1]][[3]]</span></span>
 <span><span class="co">#&gt;      [,1] [,2] [,3] [,4] [,5]</span></span>
-<span><span class="co">#&gt; [1,]    0    0    0    0    0</span></span>
-<span><span class="co">#&gt; [2,]    0    0    1    1    1</span></span>
-<span><span class="co">#&gt; [3,]    1    0    0    0    0</span></span>
-<span><span class="co">#&gt; [4,]    0    1    0    0    1</span></span>
-<span><span class="co">#&gt; [5,]    1    1    0    0    0</span></span>
+<span><span class="co">#&gt; [1,]    0    0    1    1    0</span></span>
+<span><span class="co">#&gt; [2,]    0    0    0    0    1</span></span>
+<span><span class="co">#&gt; [3,]    1    1    0    1    1</span></span>
+<span><span class="co">#&gt; [4,]    0    0    0    0    0</span></span>
+<span><span class="co">#&gt; [5,]    0    0    0    0    0</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; [[1]][[4]]</span></span>
 <span><span class="co">#&gt;      [,1] [,2] [,3] [,4] [,5]</span></span>
-<span><span class="co">#&gt; [1,]    0    0    0    0    0</span></span>
-<span><span class="co">#&gt; [2,]    0    0    1    1    1</span></span>
-<span><span class="co">#&gt; [3,]    1    1    0    1    0</span></span>
-<span><span class="co">#&gt; [4,]    0    1    0    0    1</span></span>
-<span><span class="co">#&gt; [5,]    1    1    0    0    0</span></span>
+<span><span class="co">#&gt; [1,]    0    1    1    1    1</span></span>
+<span><span class="co">#&gt; [2,]    0    0    0    0    1</span></span>
+<span><span class="co">#&gt; [3,]    1    1    0    1    1</span></span>
+<span><span class="co">#&gt; [4,]    0    0    0    0    0</span></span>
+<span><span class="co">#&gt; [5,]    0    0    0    0    0</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; [[1]][[5]]</span></span>
 <span><span class="co">#&gt;      [,1] [,2] [,3] [,4] [,5]</span></span>
-<span><span class="co">#&gt; [1,]    0    0    0    0    0</span></span>
-<span><span class="co">#&gt; [2,]    1    0    1    1    1</span></span>
-<span><span class="co">#&gt; [3,]    1    1    0    1    0</span></span>
-<span><span class="co">#&gt; [4,]    0    1    0    0    1</span></span>
-<span><span class="co">#&gt; [5,]    1    1    0    0    0</span></span></code></pre></div>
+<span><span class="co">#&gt; [1,]    0    1    1    1    1</span></span>
+<span><span class="co">#&gt; [2,]    0    0    0    0    1</span></span>
+<span><span class="co">#&gt; [3,]    1    1    0    1    1</span></span>
+<span><span class="co">#&gt; [4,]    0    0    0    0    0</span></span>
+<span><span class="co">#&gt; [5,]    0    0    0    0    0</span></span></code></pre></div>
 <hr>
 </div>
 </div>
@@ -878,17 +880,17 @@ only save the final network</p>
 <code class="sourceCode R"><span><span class="va">df_dyads</span></span>
 <span><span class="va">df_triads</span></span>
 <span><span class="co">#&gt;   Mut Asym Null            type</span></span>
-<span><span class="co">#&gt; 1   1    3    6 twostep: random</span></span>
-<span><span class="co">#&gt; 2   1    3    6 twostep: random</span></span>
-<span><span class="co">#&gt; 3   2    2    6 twostep: random</span></span>
-<span><span class="co">#&gt; 4   2    1    7 twostep: random</span></span>
-<span><span class="co">#&gt; 5   1    4    5 twostep: random</span></span>
+<span><span class="co">#&gt; 1   2    3    5 twostep: random</span></span>
+<span><span class="co">#&gt; 2   2    1    7 twostep: random</span></span>
+<span><span class="co">#&gt; 3   1    3    6 twostep: random</span></span>
+<span><span class="co">#&gt; 4   3    2    5 twostep: random</span></span>
+<span><span class="co">#&gt; 5   0    3    7 twostep: random</span></span>
 <span><span class="co">#&gt;   003 012 102 021D 021U 021C 111D 111U 030T 030C 201 120D 120U 120C 210 300</span></span>
-<span><span class="co">#&gt; 1   2   4   0    0    0    1    1    2    0    0   0    0    0    0   0   0</span></span>
-<span><span class="co">#&gt; 2   2   4   1    1    0    0    0    1    0    0   0    0    1    0   0   0</span></span>
-<span><span class="co">#&gt; 3   1   4   2    0    0    0    2    0    0    0   1    0    0    0   0   0</span></span>
-<span><span class="co">#&gt; 4   4   1   2    0    0    0    2    0    0    0   1    0    0    0   0   0</span></span>
-<span><span class="co">#&gt; 5   1   2   1    1    1    2    2    0    0    0   0    0    0    0   0   0</span></span>
+<span><span class="co">#&gt; 1   1   2   1    1    0    1    1    2    0    0   1    0    0    0   0   0</span></span>
+<span><span class="co">#&gt; 2   2   3   4    0    0    0    0    0    0    0   1    0    0    0   0   0</span></span>
+<span><span class="co">#&gt; 3   1   5   1    1    0    0    2    0    0    0   0    0    0    0   0   0</span></span>
+<span><span class="co">#&gt; 4   1   1   2    0    0    1    1    2    0    0   2    0    0    0   0   0</span></span>
+<span><span class="co">#&gt; 5   3   5   0    1    0    1    0    0    0    0   0    0    0    0   0   0</span></span>
 <span><span class="co">#&gt;              type</span></span>
 <span><span class="co">#&gt; 1 twostep: random</span></span>
 <span><span class="co">#&gt; 2 twostep: random</span></span>
@@ -931,7 +933,7 @@ Figure 5.3. Dyad census
 <div class="section level2">
 <h2 id="references">References<a class="anchor" aria-label="anchor" href="#references"></a>
 </h2>
-<!---note to self: two sequential ministeps is not the same as two simultaneous ministeps! RsienaTwoStep only impliments simultaneity.-->
+<!---note to self: two sequential ministeps is not the same as two simultaneous ministeps! RsienaTwoStep only implements simultaneity.-->
 <div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-FRANKEN2023151" class="csl-entry">
 Franken, Rob, Hidde Bekhuis, and Jochem Tolsma. 2023. <span>“Kudos Make
