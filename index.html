@@ -105,7 +105,7 @@
 <img src="logo.png" class="logo" alt=""><h1 id="id_1-goal">1. GOAL<a class="anchor" aria-label="anchor" href="#id_1-goal"></a>
 </h1>
 </div>
-<p>The goal of <code>RsienaTwoStep</code> is to provide a method to asses the extent to which results obtained by <code><a href="https://rdrr.io/pkg/RSiena/man/siena07.html" class="external-link">RSiena::siena07()</a></code> depend on the validity of the <strong>ministep</strong> assumption.</p>
+<p>The goal of <code>RsienaTwoStep</code> is to provide a method to asses the extent to which results obtained by <code>RSiena::siena07()</code> depend on the validity of the <strong>ministep</strong> assumption.</p>
 <p>A crucial assumption of the SAOM as implemented in RSiena is the <strong>ministep</strong>: only one actor at the time is allowed to make one tie-change. This package aims to provide a method to asses the extent to which results obtained by RSiena hinge on this crucial ministep assumption. It does so by simulating the evolution of networks by allowing <strong>twosteps</strong> - two actors are allowed to make one tie-change simultaneously - and by allowing <strong>simsteps</strong> - one actor is allowed to make two tie-changes simultaneously.</p>
 <div class="section level2">
 <h2 id="id_11-twostep">1.1. Twostep<a class="anchor" aria-label="anchor" href="#id_11-twostep"></a>
@@ -172,7 +172,7 @@
 <span><span class="co"># create the cluster</span></span>
 <span><span class="va">my.cluster</span> <span class="op">&lt;-</span> <span class="fu">parallel</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/parallel/makeCluster.html" class="external-link">makeCluster</a></span><span class="op">(</span><span class="va">n.cores</span>, type <span class="op">=</span> <span class="st">"PSOCK"</span><span class="op">)</span></span>
 <span><span class="co"># register it to be used by %dopar%</span></span>
-<span><span class="fu">doParallel</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/doParallel/man/registerDoParallel.html" class="external-link">registerDoParallel</a></span><span class="op">(</span>cl <span class="op">=</span> <span class="va">my.cluster</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">doParallel</span><span class="fu">::</span><span class="fu">registerDoParallel</span><span class="op">(</span>cl <span class="op">=</span> <span class="va">my.cluster</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="id_33-degree-and-reciprocity">3.3. Degree and reciprocity<a class="anchor" aria-label="anchor" href="#id_33-degree-and-reciprocity"></a>
