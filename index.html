@@ -5,20 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="A crucial assumption of the SAOM as implemented in RSiena is
-    the ministep: only one actor at the time is allowed to make one
-    tie-change. This package aims to provide a method to asses the extent
-    to which results obtained by RSiena hinge on this crucial ministep
-    assumption. It does so by simulating the evoluation of networks by
-    allowing two actors to make decisions on tie-changes simultaneously.
-    Depending on the precise implementation of the two-step procedure,
-    allowing for twosteps can be interpreted simply as allowing for
-    simultaneity (when two actors are picked at random to simultaneously
-    make a ministep), or as coordination (when there are either rules on
-    which two actors are allowed to make a twostep and/or which options
-    after the twostep count as coordination and are included in the choice
-    set of the two actors). The package can mix the ratio of ministeps and
-    twosteps.">
+<meta name="description" content="A crucial assumption of the SAOM as implemented in RSiena is the ministep: only one actor at the time is allowed to make one tie-change. This package aims to provide a method to asses the extent to which results obtained by RSiena hinge on this crucial ministep assumption. It does so by simulating the evoluation of networks by allowing two actors to make decisions on tie-changes simultaneously. Depending on the precise implementation of the two-step procedure, allowing for twosteps can be interpreted simply as allowing for simultaneity (when two actors are picked at random to simultaneously make a ministep), or as coordination (when there are either rules on which two actors are allowed to make a twostep and/or which options after the twostep count as coordination and are included in the choice set of the two actors). The package can mix the ratio of ministeps and twosteps.">
 <title>Simulate Network Evolution Allowing Two Tie Changes Simultaneously • RsienaTwoStep</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
@@ -30,21 +17,8 @@
 <link href="deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
-<!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Simulate Network Evolution Allowing Two Tie Changes Simultaneously">
-<meta property="og:description" content="A crucial assumption of the SAOM as implemented in RSiena is
-    the ministep: only one actor at the time is allowed to make one
-    tie-change. This package aims to provide a method to asses the extent
-    to which results obtained by RSiena hinge on this crucial ministep
-    assumption. It does so by simulating the evoluation of networks by
-    allowing two actors to make decisions on tie-changes simultaneously.
-    Depending on the precise implementation of the two-step procedure,
-    allowing for twosteps can be interpreted simply as allowing for
-    simultaneity (when two actors are picked at random to simultaneously
-    make a ministep), or as coordination (when there are either rules on
-    which two actors are allowed to make a twostep and/or which options
-    after the twostep count as coordination and are included in the choice
-    set of the two actors). The package can mix the ratio of ministeps and
-    twosteps.">
+<!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js" integrity="sha512-7O5pXpc0oCRrxk8RUfDYFgn0nO1t+jLuIOQdOMRp4APB7uZ4vSjspzp5y6YDtDs4VzUSTbWzBFZ/LKJhnyFOKw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Simulate Network Evolution Allowing Two Tie Changes Simultaneously">
+<meta property="og:description" content="A crucial assumption of the SAOM as implemented in RSiena is the ministep: only one actor at the time is allowed to make one tie-change. This package aims to provide a method to asses the extent to which results obtained by RSiena hinge on this crucial ministep assumption. It does so by simulating the evoluation of networks by allowing two actors to make decisions on tie-changes simultaneously. Depending on the precise implementation of the two-step procedure, allowing for twosteps can be interpreted simply as allowing for simultaneity (when two actors are picked at random to simultaneously make a ministep), or as coordination (when there are either rules on which two actors are allowed to make a twostep and/or which options after the twostep count as coordination and are included in the choice set of the two actors). The package can mix the ratio of ministeps and twosteps.">
 <meta property="og:image" content="https://jochemtolsma.github.io/RsienaTwoStep/logo.png">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -55,7 +29,7 @@
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
     
 
-    <nav class="navbar fixed-top navbar-light navbar-expand-lg bg-light"><div class="container">
+    <nav class="navbar fixed-top navbar-light navbar-expand-lg bg-light" data-bs-theme="light"><div class="container">
     
     <a class="navbar-brand me-2" href="index.html">RsienaTwoStep</a>
 
@@ -98,13 +72,15 @@
   </div>
 </nav><div class="container template-home">
 <div class="row">
-  <main id="main" class="col-md-9">
-<hr>
+  <main id="main" class="col-md-9"><hr>
+<!-- badges: start -->
+<p><a href="https://lifecycle.r-lib.org/articles/stages.html#experimental" class="external-link"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: experimental"></a> <!-- badges: end --></p>
 <div class="section level1">
 <div class="page-header">
-<img src="logo.png" class="logo" alt=""><h1 id="id_1-goal">1. GOAL<a class="anchor" aria-label="anchor" href="#id_1-goal"></a>
+<img src="logo.png" class="logo" alt=""><h1 id="id_1-rsienatwostep">1. RsienaTwoStep<a class="anchor" aria-label="anchor" href="#id_1-rsienatwostep"></a>
 </h1>
 </div>
+<p>&lt;img src=“man/figures/logo.png” align=“right”, alt = ““, width=”120” /&gt;</p>
 <p>The goal of <code>RsienaTwoStep</code> is to provide a method to asses the extent to which results obtained by <code><a href="https://rdrr.io/pkg/RSiena/man/siena07.html" class="external-link">RSiena::siena07()</a></code> depend on the validity of the <strong>ministep</strong> assumption.</p>
 <p>A crucial assumption of the SAOM as implemented in RSiena is the <strong>ministep</strong>: only one actor at the time is allowed to make one tie-change. This package aims to provide a method to asses the extent to which results obtained by RSiena hinge on this crucial ministep assumption. It does so by simulating the evolution of networks by allowing <strong>twosteps</strong> - two actors are allowed to make one tie-change simultaneously - and by allowing <strong>simsteps</strong> - one actor is allowed to make two tie-changes simultaneously.</p>
 <div class="section level2">
@@ -155,7 +131,7 @@
 <h2 id="id_31-our-network">3.1. Our network<a class="anchor" aria-label="anchor" href="#id_31-our-network"></a>
 </h2>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">net1g</span> <span class="op">&lt;-</span> <span class="fu">igraph</span><span class="fu">::</span><span class="fu"><a href="https://r.igraph.org/reference/graph_from_adjacency_matrix.html" class="external-link">graph_from_adjacency_matrix</a></span><span class="op">(</span><span class="va">net1</span>, mode<span class="op">=</span><span class="st">"directed"</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">net1g</span> <span class="op">&lt;-</span> <span class="fu">igraph</span><span class="fu">::</span><span class="fu"><a href="https://r.igraph.org/reference/graph_from_adjacency_matrix.html" class="external-link">graph_from_adjacency_matrix</a></span><span class="op">(</span><span class="va">ts_net1</span>, mode<span class="op">=</span><span class="st">"directed"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">net1g</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-3-1.png" width="100%"></p>
 </div>
@@ -167,12 +143,12 @@
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/RevolutionAnalytics/doparallel" class="external-link">doParallel</a></span><span class="op">)</span></span>
 <span><span class="co">#&gt; Loading required package: iterators</span></span>
 <span><span class="co">#&gt; Loading required package: parallel</span></span>
-<span><span class="co">#stopCluster(my.cluster) </span></span>
 <span><span class="va">n.cores</span> <span class="op">&lt;-</span> <span class="fu">parallel</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/parallel/detectCores.html" class="external-link">detectCores</a></span><span class="op">(</span><span class="op">)</span> <span class="op">-</span> <span class="fl">1</span>  <span class="co">#save one core for other work</span></span>
 <span><span class="co"># create the cluster</span></span>
 <span><span class="va">my.cluster</span> <span class="op">&lt;-</span> <span class="fu">parallel</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/parallel/makeCluster.html" class="external-link">makeCluster</a></span><span class="op">(</span><span class="va">n.cores</span>, type <span class="op">=</span> <span class="st">"PSOCK"</span><span class="op">)</span></span>
 <span><span class="co"># register it to be used by %dopar%</span></span>
-<span><span class="fu">doParallel</span><span class="fu">::</span><span class="fu">registerDoParallel</span><span class="op">(</span>cl <span class="op">=</span> <span class="va">my.cluster</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">doParallel</span><span class="fu">::</span><span class="fu">registerDoParallel</span><span class="op">(</span>cl <span class="op">=</span> <span class="va">my.cluster</span><span class="op">)</span></span>
+<span><span class="co">#stopCluster(my.cluster) </span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="id_33-degree-and-reciprocity">3.3. Degree and reciprocity<a class="anchor" aria-label="anchor" href="#id_33-degree-and-reciprocity"></a>
@@ -184,11 +160,12 @@
 </h3>
 <p>We can now simulate network given different assumptions with respect to tie-changes. Below we simulate according to the traditional ministep assumption, a twostep assumption and a simstep assumption.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">sims1</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/ts_sims.html">ts_sims</a></span><span class="op">(</span>nsims<span class="op">=</span><span class="fl">1000</span>, parallel<span class="op">=</span><span class="cn">TRUE</span>, net<span class="op">=</span><span class="va">net1</span>, rate<span class="op">=</span><span class="fl">10</span>, statistics<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">ts_degree</span>, <span class="va">ts_recip</span><span class="op">)</span>, parameters<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span>, p2step<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">0</span>,<span class="fl">0</span><span class="op">)</span>, chain<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span> <span class="co">#ministep only (one actor can make one tie change)</span></span>
+<code class="sourceCode R"><span><span class="co">#the first value of the startvalues arg refers to the rate parameter</span></span>
+<span><span class="va">sims1</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/ts_sims.html">ts_sims</a></span><span class="op">(</span>net1<span class="op">=</span><span class="va">ts_net1</span>, startvalues<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">10</span>,<span class="op">-</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span>, statistics<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">ts_degree</span>, <span class="va">ts_recip</span><span class="op">)</span>, p2step<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">0</span>,<span class="fl">0</span><span class="op">)</span>, parallel<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span> <span class="co">#ministep only (one actor can make one tie change)</span></span>
 <span></span>
-<span><span class="va">sims2</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/ts_sims.html">ts_sims</a></span><span class="op">(</span>nsims<span class="op">=</span><span class="fl">1000</span>, parallel<span class="op">=</span><span class="cn">TRUE</span>, net<span class="op">=</span><span class="va">net1</span>, rate<span class="op">=</span><span class="fl">10</span>, statistics<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">ts_degree</span>, <span class="va">ts_recip</span><span class="op">)</span>, parameters<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span>, p2step<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">1</span>,<span class="fl">0</span><span class="op">)</span>, chain<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span> <span class="co">#twostep-simultaneity (two random actors can make one tie change simultaneously)</span></span>
+<span><span class="va">sims2</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/ts_sims.html">ts_sims</a></span><span class="op">(</span>net1<span class="op">=</span><span class="va">ts_net1</span>, startvalues<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">10</span>,<span class="op">-</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span>, statistics<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">ts_degree</span>, <span class="va">ts_recip</span><span class="op">)</span>, p2step<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">1</span>,<span class="fl">0</span><span class="op">)</span>, parallel<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span> <span class="co">#twostep-simultaneity (two random actors can make one tie change simultaneously)</span></span>
 <span></span>
-<span><span class="va">sims3</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/ts_sims.html">ts_sims</a></span><span class="op">(</span>nsims<span class="op">=</span><span class="fl">1000</span>, parallel<span class="op">=</span><span class="cn">TRUE</span>, net<span class="op">=</span><span class="va">net1</span>, rate<span class="op">=</span><span class="fl">10</span>, statistics<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">ts_degree</span>, <span class="va">ts_recip</span><span class="op">)</span>, parameters<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span>, p2step<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">1</span><span class="op">)</span>, chain<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span> <span class="co">#simstep (one actor can make two tie changes simultaneously)</span></span></code></pre></div>
+<span><span class="va">sims3</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/ts_sims.html">ts_sims</a></span><span class="op">(</span>net1<span class="op">=</span><span class="va">ts_net1</span>, startvalues<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">10</span>,<span class="op">-</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span>, statistics<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">ts_degree</span>, <span class="va">ts_recip</span><span class="op">)</span>, p2step<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">1</span><span class="op">)</span>, parallel<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span> <span class="co">#simstep (one actor can make two tie changes simultaneously)</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="id_332-network-census">3.3.2. Network census<a class="anchor" aria-label="anchor" href="#id_332-network-census"></a>
@@ -236,10 +213,8 @@
 <li>For this network and given only degree and reciprocity as relevant network statistics, the ministep and simstep model lead to similar results.</li>
 </ol>
 <!--- 
-
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
-
-
+&#10;What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
+&#10;
 ```r
 summary(cars)
 #>      speed           dist       
@@ -250,16 +225,11 @@ summary(cars)
 #>  3rd Qu.:19.0   3rd Qu.: 56.00  
 #>  Max.   :25.0   Max.   :120.00
 ```
-
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this. You could also use GitHub Actions to re-render `README.Rmd` every time you push. An example workflow can be found here: <https://github.com/r-lib/actions/tree/v1/examples>.
-
-You can also embed plots, for example:
-
-<img src="man/figures/README-pressure-1.png" width="100%" />
-
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub and CRAN.
-
--->
+&#10;You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this. You could also use GitHub Actions to re-render `README.Rmd` every time you push. An example workflow can be found here: <https://github.com/r-lib/actions/tree/v1/examples>.
+&#10;You can also embed plots, for example:
+&#10;<img src="man/figures/README-pressure-1.png" width="100%" />
+&#10;In that case, don't forget to commit and push the resulting figure files, so they display on GitHub and CRAN.
+&#10;-->
 </div>
 
   </main><aside class="col-md-3"><div class="links">
@@ -296,7 +266,7 @@ In that case, don't forget to commit and push the resulting figure files, so the
 <div class="dev-status">
 <h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
-<li><a href="https://jochemtolsma.github.io/RsienaTwoStep/"><img src="reference/figures/logo.png" align="left" height="139"></a></li>
+<li><a href="https://github.com/r-lib/pkgdown/actions" class="external-link pkgdown-devel"><img src="https://github.com/r-lib/pkgdown/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></li>
 </ul>
 </div>
 
@@ -305,13 +275,11 @@ In that case, don't forget to commit and push the resulting figure files, so the
 
 
     <footer><div class="pkgdown-footer-left">
-  <p></p>
-<p>Developed by Jochem Tolsma.</p>
+  <p>Developed by Jochem Tolsma.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.9.</p>
 </div>
 
     </footer>
