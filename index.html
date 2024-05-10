@@ -147,7 +147,7 @@
 <span><span class="co"># create the cluster</span></span>
 <span><span class="va">my.cluster</span> <span class="op">&lt;-</span> <span class="fu">parallel</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/parallel/makeCluster.html" class="external-link">makeCluster</a></span><span class="op">(</span><span class="va">n.cores</span>, type <span class="op">=</span> <span class="st">"PSOCK"</span><span class="op">)</span></span>
 <span><span class="co"># register it to be used by %dopar%</span></span>
-<span><span class="fu">doParallel</span><span class="fu">::</span><span class="fu">registerDoParallel</span><span class="op">(</span>cl <span class="op">=</span> <span class="va">my.cluster</span><span class="op">)</span></span>
+<span><span class="fu">doParallel</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/doParallel/man/registerDoParallel.html" class="external-link">registerDoParallel</a></span><span class="op">(</span>cl <span class="op">=</span> <span class="va">my.cluster</span><span class="op">)</span></span>
 <span><span class="co">#stopCluster(my.cluster) </span></span></code></pre></div>
 </div>
 <div class="section level2">

@@ -494,6 +494,7 @@ more correct</strong> - interpretation of the rate parameter in
 <p>To demonstrate the network evolution:</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">#in startvalues the first value refers to the rate parameter, the subsequent values to the statistics of statistics</span></span>
+<span></span>
 <span><span class="fu"><a href="../reference/ts_sims.html">ts_sims</a></span><span class="op">(</span>startvalues <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2</span>,<span class="op">-</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span>, net1<span class="op">=</span><span class="va">ts_net2</span>, statistics<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">ts_degree</span>, <span class="va">ts_recip</span><span class="op">)</span>,nsims<span class="op">=</span><span class="fl">1</span>, p2step<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">0</span>,<span class="fl">0</span><span class="op">)</span>, chain <span class="op">=</span> <span class="cn">TRUE</span> <span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "nsim: 1"</span></span>
 <span><span class="co">#&gt; [[1]]</span></span>
@@ -670,9 +671,9 @@ twostep, both ties may be created simultaneously and we cannot
 distinguish these two routes.</p>
 <pre><code><span><span class="co">#&gt; Warning: `layout.grid()` was deprecated in igraph 2.0.0.</span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">ℹ</span> Please use `layout_on_grid()` instead.</span></span>
-<span><span class="co">#&gt; This warning is displayed once every 8 hours.</span></span>
-<span><span class="co">#&gt; Call `lifecycle::last_lifecycle_warnings()` to see where this warning was</span></span>
-<span><span class="co">#&gt; generated.</span></span></code></pre>
+<span><span class="co">#&gt; <span style="color: #555555;">This warning is displayed once every 8 hours.</span></span></span>
+<span><span class="co">#&gt; <span style="color: #555555;">Call `lifecycle::last_lifecycle_warnings()` to see where this warning was</span></span></span>
+<span><span class="co">#&gt; <span style="color: #555555;">generated.</span></span></span></code></pre>
 <div class="figure">
 <img src="Introduction_RsienaTwoStep_files/figure-html/unnamed-chunk-16-1.png" alt="Figure 3.4. Twostep versus ministeps" width="672"><p class="caption">
 Figure 3.4. Twostep versus ministeps
