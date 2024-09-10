@@ -16,6 +16,6 @@ dataset (DF_sim) and information on the simulation process
 ts_simdata
 }
 \description{
-A simulated co-evoluation of friendships and alcohol consumption
+A simulated co-evolution of friendships and alcohol consumption
 }
 \keyword{datasets}

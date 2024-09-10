@@ -2,7 +2,9 @@
 % Please edit documentation in R/census.R
 \name{ts_dyads}
 \alias{ts_dyads}
+\alias{ts_dyads_evo}
 \alias{ts_triads}
+\alias{ts_triads_evo}
 \alias{ts_nacf}
 \alias{ts_degreecount}
 \alias{ts_rsienanets}
@@ -10,7 +12,11 @@
 \usage{
 ts_dyads(sims, simtype = "notypespecified", forplot = TRUE)
 
+ts_dyads_evo(sims, net1, simtype = "notypespecified", forplot = TRUE)
+
 ts_triads(sims, simtype = "notypespecified", forplot = TRUE)
+
+ts_triads_evo(sims, net1, simtype = "notypespecified", forplot = TRUE)
 
 ts_nacf(sims, simtype = "notypespecified", forplot = TRUE, cov)
 
@@ -33,6 +39,9 @@ outcome. If set to \code{TRUE} this dataframe is manipulated a bit, so that each
 row represents one specific network characteristic for each simulation
 outcome, this is useful for plotting.}
 
+\item{net1}{adjacency matrix, the adjacency matrix representing the relations
+between actors at Time=1. Valid values are 0 and 1.}
+
 \item{cov}{numeric, covariate scores}
 
 \item{mode}{Character string, “out” for out-degree, “in” for in-degree or “total” for the sum of the two. “all” is a synonym of “total”.}
@@ -46,6 +55,12 @@ outcome, this is useful for plotting.}
 \description{
 These functions calculate characteristics of the simulated
 networks.
+
+Functions with _evo in their name calculate characteristics of
+the simulated networks by taking into account the starting network. For
+each specific dyad/triad it counts which and how many tie-changes have
+occured. In this way it is possible to get a feeling if twosteps were
+likely. These functions can also be used to assess whether the DGP of the observed data is likely to be the result of twosteps.
 }
 \details{
 For examples on how to use these statistics see:

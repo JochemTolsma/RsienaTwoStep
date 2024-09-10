@@ -29,6 +29,7 @@ Imports:
     Rdpack,
     sna,
     RSiena,
+    tidyr,
     stringr
 Suggests: 
     knitr,
