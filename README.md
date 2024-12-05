@@ -9,19 +9,13 @@
 
 <!-- badges: start -->
 
-<a href="https://github.com/r-lib/pkgdown/actions"
-class="pkgdown-devel"><img
-src="https://github.com/r-lib/pkgdown/workflows/R-CMD-check/badge.svg"
-alt="R-CMD-check" /></a>
+\[![R-CMD-check](https://github.com/r-lib/usethis/actions/workflows/R-CMD-check.yaml/badge.svg)\]
 
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
 
-# 1. RsienaTwoStep
-
-\<img src=“man/figures/logo.png” align=“right”, alt = ““, width=”120”
-/\>
+# 1. RsienaTwoStep \<img src=“man/figures/logo.png” align=“right”, alt = “” width=“120” /\>
 
 The goal of `RsienaTwoStep` is to provide a method to asses the extent
 to which results obtained by `RSiena::siena07()` depend on the validity
