@@ -51,7 +51,7 @@ ts_eval <- function(net, ego, statistics, ccovar = NULL, parameters) {
 }
 
 
-ts_eval_beh <- function(beh, net, ego, statistics, ccovar = NULL, parameters) {
+ts_eval_beh <- function(beh, net, ego, statistics, ccovar = NULL, parameters, seed=NULL) {
 
   # prepare dataset
   ccovar <- ts_prepdata(ccovar)
@@ -65,14 +65,19 @@ ts_eval_beh <- function(beh, net, ego, statistics, ccovar = NULL, parameters) {
 
     if (length(stat) == 1) {
       # Single argument statistic function
-      s <- s + parameters[j] * stat(beh, ego)
-      #} else if (length(stat) == 2) { #we only have stats of length 1 or 2
-    } else {
-      # Two-argument statistic function
+      s <- s + parameters[j] * stat(beh=beh, ego=ego)
+      } else if (length(stat) == 2) {
+    # Two-argument statistic function
       cov <- NULL
       if (stat[[2]] %in% names(ccovar)) cov <- ccovar[, stat[[2]]]
-      s <- s + parameters[j] * stat[[1]](beh, net, ego, cov)
-    }
+      s <- s + parameters[j] * stat[[1]](beh=beh, net=net, ego=ego, cov=cov)
+    } else { #statistic function with parameter (and seed)
+      cov <- NULL
+      if (stat[[2]] %in% names(ccovar)) cov <- ccovar[, stat[[2]]]
+
+      s <- s + parameters[j] * stat[[1]](beh=beh, net=net, ego=ego, cov=cov, parameter = stat[[3]], seed = seed)
+
+      }
   }
 
   return(s)
